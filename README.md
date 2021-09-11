@@ -61,7 +61,7 @@
     
 
     |Example for `lsblk`: |
-    |:-|
+    |:-:|
     |![lsblk Example](./img/lsblk-example.png "lsblk Example")|
 
 *   Enter fdisk: 
@@ -280,12 +280,12 @@ $ pacstrap /mnt base base-devel linux linux-firmware nano
 
 *   Create the user: 
     ```shell
-    useradd -m -G wheel pigges
+    useradd -m -G wheel user #change user
     ```
 
 *   Set a user password: 
     ```shell
-    $ passwd pigges
+    $ passwd user
     ```
 
 *   Edit the `sudo` config so users of the `wheel` group can use sudo: 
@@ -317,4 +317,4 @@ You can now remove the install media and boot into your newly made arch install 
 
 |BTW I use Arch|
 |:-:|
-| ![BTW I use Arch](./img/btw-i-use-arch.png)|
+| ![BTW I use Arch](./img/btw-i-use-arch.png "BTW I USE ARCH")|
