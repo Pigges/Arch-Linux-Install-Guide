@@ -1,8 +1,8 @@
 # **Arch Install Guide**
 ![Arch Logo](./img/arch-logo.png "Arch Linux")
-### This is a guide about how to install *Arch Linux* from start to finish in one place. If you follow these steps you will end up with an clean install of *Arch Linux* without any graphical enviroment. 
+#### This is a guide about how to install *Arch Linux* from start to finish in one place. If you follow these steps you will end up with an clean install of *Arch Linux* without any graphical environment. 
 
-## Keep in mind that this guide is made for *BIOS* and not *UEFI* systems
+### Keep in mind that this guide is made for *BIOS* and not *UEFI* systems
 * Check if you have a *UEFI* system: 
     ```shell
     $ ls /sys/firmware/efi/efivars
@@ -14,9 +14,9 @@
         ls: cannot access '/sys/firmware/efi/efivars': No such file or directory
         ```
 
-# Pre install steps
+## Pre install steps
 
-1. Set the keyboard layout
+### 1. Set the keyboard layout
 
 *   Find keyboard layout: 
     ```shell
@@ -28,7 +28,7 @@
     $ loadkeys sv-latin1
     ```
 
-## 2. Connect to the internet
+### 2. Connect to the internet
 
 *   Enable the network interface: 
     ```shell
@@ -40,7 +40,7 @@
     $ ping pigges.xyz
     ```
 
-## 3. Update the system clock
+### 3. Update the system clock
 
 *   Enable the clock service: 
     ```shell
@@ -52,7 +52,7 @@
     $ timedatectl status
     ```
 
-## 4. Partition the disks
+### 4. Partition the disks
 
 *   Check what disks are connected: 
     ```shell
@@ -80,7 +80,7 @@
 
 
 
-## 5. Format the partitions
+### 5. Format the partitions
 
 *   Make filesystem for all the partitions exept for the `SWAP` partition: 
     ```shell
@@ -94,7 +94,7 @@
     $ swapon    /dev/sda2
     ```
 
-## 6. Mount file systems
+### 6. Mount file systems
 
 *   Mount the root partition to `/mnt`: 
     ```shell
@@ -115,16 +115,16 @@
     $ mount /dev/sda4   /mnt/home
     ```
 
-# Install steps
+## Install steps
 
-## 1. Run the install command with `pacstrap`
+### 1. Run the install command with `pacstrap`
 
 ```shell
 $ pacstrap /mnt base base-devel linux linux-firmware nano
 ```
     
 
-## 2. Generate fstab file and Chroot to the disk
+### 2. Generate fstab file and Chroot to the disk
 
 *   Generate an fstab file: 
     ```shell
@@ -136,9 +136,9 @@ $ pacstrap /mnt base base-devel linux linux-firmware nano
     $ arch-chroot   /mnt
     ```
 
-# Post install steps
+## Post install steps
 
-## 1. Set Time Zone
+### 1. Set Time Zone
 
 * Check Region and City:
     ```shell
@@ -157,7 +157,7 @@ $ pacstrap /mnt base base-devel linux linux-firmware nano
     $ hwclock --systohc
     ```
 
-## 2. Setup localization
+### 2. Setup localization
 
 *   Edit `/etc/locale.gen` and uncomment the locales you may need: 
     ```shell
@@ -194,7 +194,7 @@ $ pacstrap /mnt base base-devel linux linux-firmware nano
     KEYMAP=sv-latin1
     ```
 
-## 3. Network configuration
+### 3. Network configuration
 
 *   Install and enable `networkmanager`: 
     ```shell
@@ -228,14 +228,14 @@ $ pacstrap /mnt base base-devel linux linux-firmware nano
     127.0.1.1       archvm.localdomain      archvm
     ```
 
-## 4. Root password
+### 4. Root password
 
 *   Set a root password
     ```shell
     $ passwd
     ```
 
-## 5. Setup a bootloader 'GRUB'
+### 5. Setup a bootloader 'GRUB'
 
 *   Install `grub`
     ```shell
@@ -276,7 +276,7 @@ $ pacstrap /mnt base base-devel linux linux-firmware nano
         $ grub-mkconfig -o /boot/grub/grub.cfg
         ```
 
-## 6. Setup a user
+### 6. Setup a user
 
 *   Create the user: 
     ```shell
@@ -295,7 +295,7 @@ $ pacstrap /mnt base base-devel linux linux-firmware nano
 
     *   Find the line where it says "`# %wheel ALL=(ALL) ALL`" and uncomment it. 
 
-## 7. Exit and shutdown
+### 7. Exit and shutdown
 
 *   Exit from `chroot`:
     ```shell
@@ -312,7 +312,7 @@ $ pacstrap /mnt base base-devel linux linux-firmware nano
     $ shutdown now
     ```
 
-## 8. Done!
+### 8. Done!
 You can now remove the install media and boot into your newly made arch install and be prompted with a login. 
 
 |BTW I use Arch|
