@@ -58,7 +58,11 @@
     ```shell
     $ lsblk
     ```
-    ![lsblk Example](./img/lsblk-example.png "lsblk Example")
+    
+
+    |Example for `lsblk`: |
+    |:-|
+    |![lsblk Example](./img/lsblk-example.png "lsblk Example")|
 
 *   Enter fdisk: 
     ```shell
